@@ -53,10 +53,16 @@
     function displayForecast(data){
     //gets the forecast for the next 40 days
         const foreList = data.list;
+        console.log(foreList);
         let forecast = '<h1>5-Day Forecast</h1>';
 
         for(let i = 0; i < foreList.length; i+=8){
             const foreData = foreList[i];
+            //the breakdown for below: the Date object is giving the local time zone
+            //we are going to the dt object with the data provided which is giving a Unix timestamp
+            //this represents the number of seconds that have passed since the Unix epoch, which is the amount
+            //of time in seconds that have elapsed since its start on January 1, 1970. We multiply it by 1000
+            //to get the time in miliseconds.
             const date = new Date(foreData.dt *1000);
 
             const tempInKelvin = foreData.main.temp;
@@ -72,10 +78,12 @@
             var displaySpeed = Math.trunc(windSpeedMPH);
 
             forecast +=  `
-            <p>${date.toDateString()}</p>
-            <p>Temperature: ${displayFahr} &#8457;</p>
-            <p>Wind: ${displaySpeed} MPH</p>
-            <p>Humidity: ${foreData.main.humidity}%</p>
+            <div class="col-12 col-md-6 col-lg-3">
+                <p>${date.toDateString()}</p>
+                <p>Temperature: ${displayFahr} &#8457;</p>
+                <p>Wind: ${displaySpeed} MPH</p>
+                <p>Humidity: ${foreData.main.humidity}%</p>
+            </div>
             `;
 
         }
