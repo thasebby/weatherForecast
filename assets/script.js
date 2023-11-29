@@ -54,7 +54,7 @@
     //gets the forecast for the next 40 days
         const foreList = data.list;
         console.log(foreList);
-        let forecast = '<h1>5-Day Forecast</h1>';
+        let forecastHTML = ' ';
 
         for(let i = 0; i < foreList.length; i+=8){
             const foreData = foreList[i];
@@ -77,8 +77,8 @@
             //remove extra decimals
             var displaySpeed = Math.trunc(windSpeedMPH);
 
-            forecast +=  `
-            <div class="col-12 col-md-6 col-lg-3">
+            forecastHTML +=  `
+            <div class="card text-center rounded border-dark" style="width: 10rem;">
                 <p>${date.toDateString()}</p>
                 <p>Temperature: ${displayFahr} &#8457;</p>
                 <p>Wind: ${displaySpeed} MPH</p>
@@ -87,6 +87,7 @@
             `;
 
         }
-        document.getElementById('fiveDay').innerHTML = forecast;     
+        //this works because you are adding a string into the the fiveDay DOM element
+        document.getElementById('fiveDay').innerHTML = forecastHTML;     
     }
    
