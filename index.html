@@ -13,17 +13,17 @@
         <div id="search" class="text-center">
             <label for="searchCity">Search for a city:</label>
             <input type="text" id="city" name="searchCity">
-            <button id="searchBTN">Search</button>
+            <button id="searchBTN" class="btn btn-dark">Search</button>
         </div>
 
         <section class="container my-5">
-            <div class="row">
+            <div class="row flex-wrap d-flex">
                 <!--This div displays the temp, weather-->
-                <div id="displayWeather" class="col-12 col-md-4 col-lg-4 text-start"></div>
+                <div id="displayWeather" class="col-12 col-md-12 col-lg-12 text-white text-center bg-dark rounded"></div>
                 <section class="row">
                     <!--Five day forecast-->
-                    <div id="forecast" class="text-end">
-                        <div id="fiveDay" class="grid gap-3 d-flex"></div>
+                    <div id="forecast" >
+                        <div id="fiveDay" class="d-flex flex-wrap justify-content-center"></div>
                     </div>
                 </section>
             </div>
